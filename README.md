@@ -1,9 +1,40 @@
-# LinuxKernelModuleBackdoor
+# Modulo Kernel que faz pequeno Backdoor
 
-O trabalho consiste na implementação de um módulo de kernel para Linux que atue como um agente backdoor para coletar informações de dentro do kernel. Essas informações devem ser enviadas via Socket para uma outra máquina remota a fim de armazenar e visualizar o conteúdo coletado. A quantidade e a forma de informação coletada é livre, no entanto, deve-se coletar no mínimo informações de entrada do usuário via teclado e snapshots da memória de vídeo. 
+Clone o repositório:
 
-Esta atividade tem peso de duas provinhas com data de entrega até 30/06 e com apresentação durante a aula agendada para 28/06 ou 30/06. O trabalho pode ser desenvolvido em trio.
+```
+git clone https://github.com/seu_usuario/seu_repositorio.git
+```
+Navegue até o diretório do projeto:
 
-Disponibilizar o projeto no Github com Makefile. Incluir um arquivo README com instruções sobre compilação, instalação e execução e também uma descrição da funcionalidade das principais funções do código fonte. 
+cd seu_repositorio/LinuxKernelModuleBackdoor
+Compile o módulo do kernel:
+```
+make
+```
+Insira o módulo no kernel:
 
-Fazer o upload deste arquivo README no link acima incluindo um link para o projeto no Github. 
+```
+sudo insmod backdoor.ko
+```
+
+Execute o server.py em um terminal para iniciar o servidor:
+```
+python3 server.py
+```
+Em outro terminal, execute o client.py para conectar-se ao servidor e receber os logs:
+```
+python3 client.py
+```
+A partir desse momento, o cliente estará conectado ao servidor e receberá as atualizações do log em tempo real.
+
+Você também pode encerrar a conexão e remover o módulo do kernel quando desejar:
+
+Para encerrar a conexão do cliente, basta pressionar Ctrl + C no terminal onde o client.py está sendo executado.
+Para remover o módulo do kernel, execute o seguinte comando:
+```
+sudo rmmod backdoor.ko
+```
+Certifique-se de ter as permissões necessárias para inserir e remover módulos do kernel.
+
+Lembrando que é importante adaptar os comandos conforme a estrutura do seu repositório e diretório de trabalho.
