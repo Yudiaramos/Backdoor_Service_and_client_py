@@ -1,24 +1,24 @@
 # Modulo Kernel que faz pequeno Backdoor
-
-Clone o repositório:
-
+Para replicar o backdoor inicialmente clone o repositório:
 ```
 git clone https://github.com/seu_usuario/seu_repositorio.git
 ```
-Navegue até o diretório do projeto:
-
-cd seu_repositorio/LinuxKernelModuleBackdoor
-Compile o módulo do kernel:
+então navegue até a pasta src, em que o Makefile está localizado
+```
+cd seu_repositorio/LinuxKernelModuleBackdoor/src
+```
+Compile o módulo do kernel dando o comando:
 ```
 make
 ```
-Insira o módulo no kernel:
+Logo após, insira o módulo no kernel:
 
 ```
 sudo insmod backdoor.ko
 ```
+##Receber os dados escritos
 
-Execute o server.py em um terminal para iniciar o servidor:
+Para receber tudo que foi escrito no teclado, primeiro execute o server.py em um novo terminal para iniciar o servidor:
 ```
 python3 server.py
 ```
@@ -31,10 +31,11 @@ A partir desse momento, o cliente estará conectado ao servidor e receberá as a
 Você também pode encerrar a conexão e remover o módulo do kernel quando desejar:
 
 Para encerrar a conexão do cliente, basta pressionar Ctrl + C no terminal onde o client.py está sendo executado.
+
 Para remover o módulo do kernel, execute o seguinte comando:
 ```
 sudo rmmod backdoor.ko
 ```
 Certifique-se de ter as permissões necessárias para inserir e remover módulos do kernel.
 
-Lembrando que é importante adaptar os comandos conforme a estrutura do seu repositório e diretório de trabalho.
+Lembrando que é importante adaptar os comandos conforme a estrutura do seu repositório e diretório de trabalho (se atente aos códigos que possuem tratam uma localidade de código, adaptando para seu próprio OS).
